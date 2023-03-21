@@ -1,0 +1,23 @@
+CREATE TABLE candy(id INTEGER PRIMARY KEY, type TEXT, quantity INTEGER, price INTEGER, sugarfree TEXT);
+INSERT INTO candy VALUES (1, "snickers", 80, 1.00, "no");
+INSERT INTO candy VALUES (2, "reeses", 76, 1.00, "no");
+INSERT INTO candy VALUES (3, "gummy bears", 60, 0.50, "yes");
+INSERT INTO candy VALUES (4, "hard candy", 45, 0.50, "yes");
+INSERT INTO candy VALUES (5, "milky way", 70, 1.00, "no");
+INSERT INTO candy VALUES (6, "jolly ranchers", 85, 1.00, "no");
+INSERT INTO candy VALUES (7, "dove", 65, 1.00, "no");
+INSERT INTO candy VALUES (8, "hershey bar", 72, 1.00, "no");
+INSERT INTO candy VALUES (9, "gumballs", 108, 0.50, "yes");
+INSERT INTO candy VALUES (10, "suckers", 120, 0.50, "no");
+INSERT INTO candy VALUES (11, "gum", 115, 0.50, "yes");
+INSERT INTO candy VALUES (12, "fun dip", 78, 1.00, "no");
+INSERT INTO candy VALUES (13, "m&m", 100, 1.00, "no");
+INSERT INTO candy VALUES (14, "sour straws", 88, 1.00, "no");
+INSERT INTO candy VALUES (15, "air heads", 93, 1.00, "no");
+
+
+display candy by ascending price
+SELECT * FROM candy ORDER BY price ASC;
+
+what is the sum of quantity of all the candy
+SELECT SUM (quantity) FROM candy
