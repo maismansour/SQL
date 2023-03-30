@@ -1,0 +1,44 @@
+CREATE TABLE actors (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);
+
+INSERT INTO actors (name, age) VALUES ('bruce willis', 68);
+INSERT INTO actors (name, age) VALUES ('adam sandler', 56);
+INSERT INTO actors (name, age) VALUES ('chris tucker', 51);
+INSERT INTO actors (name, age) VALUES ('nicole kidman', 55);
+INSERT INTO actors (name, age) VALUES ('tiffany hadish', 43);
+
+CREATE TABLE net (id INTEGER PRIMARY KEY AUTOINCREMENT, actor TEXT, worth TEXT);
+
+INSERT INTO net (actor, worth) VALUES (1, '250 million');
+INSERT INTO net (actor, worth) VALUES (2, '420 MILLION');
+INSERT INTO net (actor, worth) VALUES (3, '6 million');
+INSERT INTO net (actor, worth) VALUES (4, '250 million');
+INSERT INTO net (actor, worth) VALUES (5, '6 million');
+
+CREATE TABLE spouses (id INTEGER PRIMARY KEY AUTOINCREMENT, spouse_name TEXT);
+
+INSERT INTO spouses (spouse_name) VALUES ('keith urban');
+INSERT INTO spouses (spouse_name) VALUES ('emma willis');
+INSERT INTO spouses (spouse_name) VALUES ('jackie sandler');
+
+
+CREATE TABLE spouse (id INTEGER PRIMARY KEY AUTOINCREMENT, actor_id INTEGER, spouse_id INTEGER);
+
+INSERT INTO spouse (actor_id, spouse_id) VALUES (1,2);
+INSERT INTO spouse (actor_id, spouse_id) VALUES (2,3);
+INSERT INTO spouse (actor_id, spouse_id) VALUES (3, NULL);
+INSERT INTO spouse (actor_id, spouse_id) VALUES (4,1);
+INSERT INTO spouse (actor_id, spouse_id) VALUES (5, NULL);
+
+
+
+SELECT actors.name, spouses.spouse_name
+FROM actors
+LEFT OUTER JOIN spouse
+ON actors.id = spouse.actor_id
+LEFT OUTER JOIN spouses
+ON spouse.spouse_id = spouses.id;
+
+SELECT actors.name, net.worth
+FROM actors
+JOIN net ON actors.id = net.actor;
+
